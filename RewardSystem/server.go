@@ -12,10 +12,6 @@ import (
 	"time"
 )
 
-func handler(w http.ResponseWriter, r *http.Request) {
-	fmt.Fprintf(w, "Hi there, I love %s!", r.URL.Path[1:])
-}
-
 func main() {
 	var config rewardconfig.Config
 	err := envconfig.Process("rewardsystem", &config)
