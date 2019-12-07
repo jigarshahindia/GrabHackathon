@@ -6,6 +6,7 @@ import (
 	"log"
 	"net/http"
 	rewardconfig "rewardSystem/config"
+	handler2 "rewardSystem/handler"
 	"rewardSystem/stream"
 )
 
@@ -23,8 +24,8 @@ func main() {
 
 	// Migrate Postgres Tables
 	postgresDB := rewardconfig.PostgresConfig(config.PostgresHost, config.PostgresPort, config.PostgresUsername, config.PostgresPassword, config.PostgresDB)
-	//handler2.Migrate(postgresDB)
-
+	handler2.Migrate(postgresDB)
+	
 	kafkaConfig := rewardconfig.KafkaConfig(config.KafkaBrokers, config.KafkaGroupId, config.KafkaTopic)
 	go stream.Consume(kafkaConfig, postgresDB)
 
