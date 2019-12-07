@@ -39,13 +39,13 @@ func RedeemReward(userId, rewardType, rewardSubType, rewardValue, postgresDB str
 	return true, nil
 }
 
-func GetRewards(userId, rewardType, postgresDB string) ([]model.Message, error) {
+func GetRewards(userId, rewardType, rewardSubtype, postgresDB string) ([]model.Message, error) {
 	db, err := sql.Open("postgres", postgresDB)
 	if err != nil {
 		return nil, errors.New("Cannot Connect to Sql")
 	}
 	defer db.Close()
-	rows, err := db.Query("SELECT reward_type, reward_subtype, reward_value FROM user_reward where user_id = $1 and reward_type like $2", userId, rewardType)
+	rows, err := db.Query("SELECT reward_type, reward_subtype, reward_value FROM user_reward where user_id = $1 and reward_type = $2 and reward_subtype = $3", userId, rewardType, rewardSubtype)
 	if err != nil {
 		return nil, err
 	}

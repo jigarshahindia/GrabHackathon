@@ -12,14 +12,14 @@ import (
 func GET_REWARD_BY_USER(w http.ResponseWriter, r *http.Request) {
 	vars := mux.Vars(r)
 	userId := vars["user_id"]
-	rewardType := r.FormValue("reward_type")
-	if rewardType == "" {
-		rewardType = "%%"
-	} else {
-		rewardType = "%" + rewardType + "%"
+	rewardType := strings.ToUpper(r.FormValue("reward_type"))
+	rewardSubtype := strings.ToUpper(r.FormValue("reward_subtype"))
+
+	if rewardType == "" || rewardSubtype == "" {
+		w.WriteHeader(http.StatusInternalServerError)
+		return
 	}
-	rewardType = strings.ToUpper(rewardType)
-	rows, err := db.GetRewards(userId, rewardType, config.CONFIG_URL)
+	rows, err := db.GetRewards(userId, rewardType, rewardSubtype, config.CONFIG_URL)
 	if err != nil {
 		w.WriteHeader(http.StatusInternalServerError)
 		w.Write([]byte(err.Error()))

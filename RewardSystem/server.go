@@ -12,6 +12,12 @@ import (
 	"time"
 )
 
+func clientMiddleware(next http.Handler) http.Handler {
+	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		next.ServeHTTP(w, r)
+	})
+}
+
 func main() {
 	var config rewardconfig.Config
 	err := envconfig.Process("rewardsystem", &config)
@@ -30,6 +36,7 @@ func main() {
 	r := mux.NewRouter()
 	r.HandleFunc("/reward_system/v1/{user_id}/rewards", api.GET_REWARD_BY_USER).Methods("GET")
 	r.HandleFunc("/reward_system/v1/{user_id}/reward/redeem", api.REDEEM_REWARD_FOR_USER).Methods("POST")
+	r.Use(clientMiddleware)
 
 	srv := &http.Server{
 		Handler: r,

@@ -10,4 +10,6 @@ type Config struct {
 	PostgresUsername string
 	PostgresPassword string
 	PostgresDB       string
+
+	ETCDHOST []string
 }

@@ -43,7 +43,7 @@ func main() {
 		completionsMessage := &model.Message{
 			UserId:        strconv.Itoa(userId),
 			RewardType:    rewardType,
-			RewardSubType: "COMPLETIONS",
+			RewardSubType: "COMPLETION",
 			RewardValue:   float64(rand.Int31n(30)),
 		}
 		reqBodyBytes := new(bytes.Buffer)
