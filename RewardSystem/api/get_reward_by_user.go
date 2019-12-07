@@ -1,11 +1,14 @@
 package api
 
 import (
+	"context"
 	"encoding/json"
 	"github.com/gorilla/mux"
+	"log"
 	"net/http"
 	"rewardSystem/config"
 	"rewardSystem/db"
+	"strconv"
 	"strings"
 )
 
@@ -27,9 +30,16 @@ func GET_REWARD_BY_USER(w http.ResponseWriter, r *http.Request) {
 	} else {
 		rewards := []Reward{}
 		for i, _ := range rows {
+			conversion := 100
+			key := rows[i].RewardType + "|" + rows[i].RewardSubType
+			resp, err := config.KeysApi.Get(context.Background(), key, nil)
+			if err == nil {
+				log.Printf("%q key has %q value\n", resp.Node.Key, resp.Node.Value)
+				conversion, _ = strconv.Atoi(resp.Node.Value)
+			}
 			rewards = append(rewards, Reward{
 				RewardType:    rows[i].RewardType,
-				RewardValue:   rows[i].RewardValue,
+				RewardValue:   rows[i].RewardValue / float64(conversion),
 				RewardSubType: rows[i].RewardSubType,
 			})
 		}

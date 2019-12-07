@@ -25,7 +25,8 @@ func Migrate(postgresDBConfig string) {
 	m.Steps(2)
 }
 
-func RedeemReward(userId, rewardType, rewardSubType, rewardValue, postgresDB string) (bool, error) {
+func RedeemReward(userId, rewardType, rewardSubType string, rewardValue float64, postgresDB string) (bool, error) {
+	fmt.Println("update user_reward set reward_value = reward_value - $1 where user_id = $2 and reward_type = $3 and reward_value - $4 >= 0 and reward_subtype = $5", rewardValue, userId, rewardType, rewardValue, rewardSubType)
 	db, err := sql.Open("postgres", postgresDB)
 	if err != nil {
 		panic(err)
@@ -34,6 +35,7 @@ func RedeemReward(userId, rewardType, rewardSubType, rewardValue, postgresDB str
 	rows, err := db.Exec("update user_reward set reward_value = reward_value - $1 where user_id = $2 and reward_type = $3 and reward_value - $4 >= 0 and reward_subtype = $5", rewardValue, userId, rewardType, rewardValue, rewardSubType)
 	effectedRows, _ := rows.RowsAffected()
 	if err != nil || effectedRows == 0 {
+		fmt.Println(err)
 		return false, err
 	}
 	return true, nil

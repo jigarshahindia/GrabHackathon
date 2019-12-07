@@ -24,8 +24,9 @@ func main() {
 	if err != nil {
 		log.Fatal(err.Error())
 	}
-	fmt.Println(config)
 
+	fmt.Println(config)
+	rewardconfig.ETCDCONFIG(config.ETCDHOST)
 	// Migrate Postgres Tables
 	postgresDB := rewardconfig.PostgresConfig(config.PostgresHost, config.PostgresPort, config.PostgresUsername, config.PostgresPassword, config.PostgresDB)
 	//db.Migrate(postgresDB)
