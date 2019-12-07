@@ -1,4 +1,7 @@
-.idea*
-.idea/*
-RewardSystem/.idea*
-RewardSystem/.idea/*
+. ../env && go run user_interaction.go TRANSPORT 4
+. ../env && go run user_interaction.go FOOD 4
+. ../env && go run user_interaction.go PAY 2
+. ../env && go run user_interaction.go DELIVERY 2
+. ../env && go run user_interaction.go TICKETS 2
+. ../env && go run user_interaction.go HOTELS 2
+. ../env && go run user_interaction.go VIDEOS 2
