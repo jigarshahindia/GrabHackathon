@@ -1,4 +1,7 @@
-﻿using Newtonsoft.Json;
+﻿using AllInOneGrab.Common;
+using AllInOneGrab.Models;
+using AllInOneGrab.Services;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -14,14 +17,36 @@ namespace AllInOneGrab
 {
     public partial class Index : System.Web.UI.Page
     {
-        protected void Page_Load(object sender, EventArgs e)
-        {
+        static IRewardService rewardService;
 
+        public Index()
+        {
+            rewardService = new RewardService();
         }
 
+        [WebMethod]
+        public static string ReedemPoint(string category, string type, string userName, decimal rewardValue)
+        {
+            Request request = new Request();
+            request.apiName = "reward_system/v1/" + userName + "/reward/redeem";
+            RewardResponse rewardResponse = new RewardResponse();
+            List<Reward> rewards = new List<Reward>();
+            Reward reward = new Reward();
+            reward.reward_type = category;
+            reward.reward_subtype = type;
+            reward.reward_value = rewardValue;
+
+            rewards.Add(reward);
+            rewardResponse.rewards = rewards;
+            rewardResponse.user_id = userName;
+
+            request.rewardResponse = rewardResponse;
+
+            return rewardService.reedemRewards(request);
+        }
 
         [WebMethod]
-        public static string BindCategory(string category)
+        public static string BindCategory(string category, string userName)
         {
             string type = "completion";
             List<Vendor> vendors = LoadJson(category, type);
@@ -32,7 +57,7 @@ namespace AllInOneGrab
             sb.Append("</ center >");
             if (vendors.Count > 0)
             {
-                sb.Append(prepareHtml(category, vendors, type));
+                sb.Append(prepareHtml(category, vendors, type, userName));
             }
             else
             {
@@ -53,7 +78,7 @@ namespace AllInOneGrab
             sb.Append("</ center >");
             if (vendorTime.Count > 0)
             {
-                sb.Append(prepareHtml(category, vendorTime, type));
+                sb.Append(prepareHtml(category, vendorTime, type, userName));
 
             }
             else
@@ -75,7 +100,7 @@ namespace AllInOneGrab
             string path = System.AppDomain.CurrentDomain.BaseDirectory.ToString() + "Data\\" + category + "Vendor.json";
             VendorList vendors = new VendorList();
             List<Vendor> lstVendor = new List<Vendor>();
-            if (category == "all" || category == "food" || category == "transfort")
+            if (category == "pay" || category == "food" || category == "transport")
             {
                 using (StreamReader r = new StreamReader(path))
                 {
@@ -92,9 +117,18 @@ namespace AllInOneGrab
             return lstVendor;
         }
 
-        private static StringBuilder prepareHtml(string category, List<Vendor> vendors, string type)
+        private static decimal getUsersRewardByCategory(string category, string type, string userName)
         {
-            decimal apiValue = 100;// getUsersRewardByCategory(category);
+            Request request = new Request();
+            request.apiName = "reward_system/v1/" + userName + "/rewards?reward_type=" + category + "&reward_subtype=" + type;
+            RewardResponse res = rewardService.getRewards(request);
+            return res == null || res.rewards == null || res.rewards.Count == 0 ? 0 : Math.Round((decimal)res.rewards[0].reward_value, 2);
+        }
+
+        private static StringBuilder prepareHtml(string category, List<Vendor> vendors, string type, string userName)
+        {
+            decimal apiValue = 0;
+            apiValue = getUsersRewardByCategory(category, type, userName);
             string disabled = "disabled";
             StringBuilder sb = new StringBuilder();
 
@@ -119,7 +153,7 @@ namespace AllInOneGrab
                 sb.Append(" </a>");
                 if (apiValue >= vendor.price)
                     disabled = "";
-                sb.Append(" <a href=\"#\" class=\"btn btn-primary btn-block\" " + disabled + ">REEDEM</a>");
+                sb.Append(" <a href=\"#\" onclick=\"ReedemPoints('" + category + "','" + type + "'," + vendor.price + ")\" class=\"btn btn-primary btn-block\" " + disabled + ">REEDEM</a>");
                 sb.Append(" </div>");
                 sb.Append(" </div>");
             }
@@ -129,21 +163,5 @@ namespace AllInOneGrab
 
 
     }
-
-
-    public class Vendor
-    {
-        public string name { get; set; }
-        public int price { get; set; }
-        public string imageurl { get; set; }
-        public string category { get; set; }
-        public string type { get; set; }
-    }
-
-    public class VendorList
-    {
-        public List<Vendor> Vendors { get; set; }
-    }
-
 
 }
