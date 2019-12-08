@@ -31,7 +31,7 @@ func GetMerchantView(postgresDB string) ([]model.AggregatedReward, error) {
 		return nil, errors.New("Cannot Connect to Sql")
 	}
 	defer db.Close()
-	rows, err := db.Query("SELECT reward_type, reward_subtype, COUNT(user_id), SUM(reward_value) FROM user_reward group by 1,2")
+	rows, err := db.Query("SELECT reward_type, reward_subtype, COUNT(user_id), SUM(reward_value) FROM user_reward group by 1,2 order by 1,2")
 	if err != nil {
 		return nil, err
 	}
