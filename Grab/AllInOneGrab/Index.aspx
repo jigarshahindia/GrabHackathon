@@ -112,14 +112,13 @@
             <!-- Menu Bar -->
             <div class="row">
                 <ul id="ulCategory">
-                    <li><a onclick="categoryChange('all')" id="all" class="active">All Vouchers</a></li>
-                    <li><a onclick="categoryChange('transfort')" id="transfort">Transfort</a></li>
-                    <li><a onclick="categoryChange('food')" id="food">Food</a></li>
-                    <li><a onclick="categoryChange('pay')" id="pay">Pay</a></li>
-                    <li><a onclick="categoryChange('delivery')" id="delivery">Delivery</a></li>
-                    <li><a onclick="categoryChange('tickets')" id="tickets">Tickets</a></li>
-                    <li><a onclick="categoryChange('hotels')" id="hotels">Hotels</a></li>
-                    <li><a onclick="categoryChange('videos')" id="videos">Videos</a></li>
+                    <li><a href="#" onclick="categoryChange('transport')" id="transport" class="active">transport</a></li>
+                    <li><a href="#" onclick="categoryChange('food')" id="food">Food</a></li>
+                    <li><a href="#" onclick="categoryChange('pay')" id="pay">Pay</a></li>
+                    <li><a href="#" onclick="categoryChange('delivery')" id="delivery">Delivery</a></li>
+                    <li><a href="#" onclick="categoryChange('tickets')" id="tickets">Tickets</a></li>
+                    <li><a href="#" onclick="categoryChange('hotels')" id="hotels">Hotels</a></li>
+                    <li><a href="#" onclick="categoryChange('videos')" id="videos">Videos</a></li>
                 </ul>
             </div>
             <br />
