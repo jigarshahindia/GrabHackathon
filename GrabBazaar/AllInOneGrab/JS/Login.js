@@ -13,6 +13,12 @@
         $("#wrongpwdMsg").show();
     }
     else {
-        window.location.href = "Index.aspx?user=" + userName;
+        if (userName.toUpperCase() == 'ADMIN') {
+            window.location.href = "Admin/TransactionSummary.aspx?user=" + userName;
+        }
+        else {
+            window.location.href = "Index.aspx?user=" + userName;
+        }
+       
     }
 }
