@@ -36,6 +36,7 @@ func main() {
 
 	r := mux.NewRouter()
 	r.HandleFunc("/reward_system/v1/{user_id}/rewards", api.GET_REWARD_BY_USER).Methods("GET")
+	r.HandleFunc("/reward_system/v1/merchant", api.MERCHANT_GET_VIEW).Methods("GET")
 	r.HandleFunc("/reward_system/v1/{user_id}/reward/redeem", api.REDEEM_REWARD_FOR_USER).Methods("POST")
 	r.Use(clientMiddleware)
 
