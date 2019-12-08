@@ -13,7 +13,7 @@ Stream:- Apache Kafka
 Golang
 
 ### Grab Bazar
-js
+Asp.Net, C#, Ajax, js
 
 # Architecture Diagram
 ![architecture](assets/imgs/architecture.png)
