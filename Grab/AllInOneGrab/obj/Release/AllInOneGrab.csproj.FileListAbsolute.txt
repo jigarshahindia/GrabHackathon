@@ -69,3 +69,4 @@ C:\Projects\GrabHackathon\Grab\AllInOneGrab\obj\Release\AllInOneGrab.csproj.Core
 C:\Projects\GrabHackathon\Grab\AllInOneGrab\obj\Release\AllInOneGrab.csproj.CopyComplete
 C:\Projects\GrabHackathon\Grab\AllInOneGrab\obj\Release\AllInOneGrab.dll
 C:\Projects\GrabHackathon\Grab\AllInOneGrab\obj\Release\AllInOneGrab.pdb
+C:\Projects\GrabHackathon\Grab\AllInOneGrab\bin\System.Net.Http.Formatting.dll
