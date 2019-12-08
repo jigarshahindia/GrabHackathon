@@ -1,9 +1,16 @@
 ﻿{
   "Vendors": [
     {
-      "name": "Paytm",
+      "name": "Grab Pay",
       "price": 1,
-      "imageurl": "https://bsmedia.business-standard.com/_media/bs/img/article/2017-07/30/full/1501424786-7088.jpg",
+      "imageurl": "https://cdn01.vulcanpost.com/wp-uploads/2019/07/featuredgrabpay22.jpg",
+      "category": "pay",
+      "type": "completion"
+    },
+    {
+      "name": "%50 off GrabPay",
+      "price": 2,
+      "imageurl": "https://assets.grab.com/wp-content/uploads/sites/4/2018/12/03120909/tab2-image1.jpg",
       "category": "pay",
       "type": "completion"
     },
@@ -15,30 +22,23 @@
       "type": "completion"
     },
     {
-      "name": "Paytm",
-      "price": 1,
-      "imageurl": "https://bsmedia.business-standard.com/_media/bs/img/article/2017-07/30/full/1501424786-7088.jpg",
-      "category": "pay",
-      "type": "completion"
-    },
-    {
-      "name": "Paytm",
-      "price": 1,
-      "imageurl": "https://bsmedia.business-standard.com/_media/bs/img/article/2017-07/30/full/1501424786-7088.jpg",
+      "name": "Grab Merchant 10%",
+      "price": 2,
+      "imageurl": "https://lh3.googleusercontent.com/-F9U-9ieEr2lkYu6-Sbt-Mh61ey39hklYp8VK2cHoL9Jmdf1SQ1s6zTnt4CcjP9PROw",
       "category": "pay",
       "type": "timespent"
     },
     {
-      "name": "Paytm",
-      "price": 1,
-      "imageurl": "https://bsmedia.business-standard.com/_media/bs/img/article/2017-07/30/full/1501424786-7088.jpg",
+      "name": "Free Coffee",
+      "price": 3,
+      "imageurl": "https://everydayonsales-infomartglobal.netdna-ssl.com//wp-content/uploads/2019/09/The-Alley-GrabPay-and-GrabFood-Promo-350x125.jpg",
       "category": "pay",
       "type": "timespent"
     },
     {
-      "name": "Paytm",
+      "name": "IPhone XS off 10%",
       "price": 1,
-      "imageurl": "https://bsmedia.business-standard.com/_media/bs/img/article/2017-07/30/full/1501424786-7088.jpg",
+      "imageurl": "https://i1.wp.com/contestseventsmy.com/wp-content/uploads/2018/12/grabpay-win-an-iphone-xs.jpg?resize=1140%2C599",
       "category": "pay",
       "type": "timespent"
     }
