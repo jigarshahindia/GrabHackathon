@@ -16,7 +16,7 @@ Golang
 js
 
 #Architecture Diagram
-![Architecture](images/architecture.png)
+![architecture](assets/imgs/architecture.png)
 
 ##Components
 ####RewardSystem
