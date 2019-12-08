@@ -107,8 +107,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="About.aspx" />
-    <Content Include="Contact.aspx" />
+    <Content Include="Admin\TransactionSummary.aspx" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -120,7 +119,6 @@
     <Content Include="css\old-checkout.css" />
     <Content Include="css\style.css" />
     <Content Include="css\w3.css" />
-    <Content Include="Default.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -245,6 +243,7 @@
     <Content Include="Index.aspx" />
     <Content Include="JS\Index.js" />
     <Content Include="JS\Login.js" />
+    <Content Include="JS\TransSummary.js" />
     <Content Include="Login.aspx" />
     <Content Include="Rewards.aspx" />
     <Content Include="Scripts\bootstrap.js" />
@@ -276,36 +275,23 @@
     <Content Include="Scripts\WebForms\WebParts.js" />
     <Content Include="Scripts\WebForms\WebUIValidation.js" />
     <Content Include="Site.Master" />
+    <Content Include="UnauhtorizedAccess.aspx" />
     <Content Include="ViewSwitcher.ascx" />
     <Content Include="Web.config" />
     <Content Include="Bundle.config" />
     <Content Include="Site.Mobile.Master" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="App_Start\BundleConfig.cs" />
-    <Compile Include="About.aspx.cs">
-      <DependentUpon>About.aspx</DependentUpon>
+    <Compile Include="Admin\TransactionSummary.aspx.cs">
+      <DependentUpon>TransactionSummary.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="About.aspx.designer.cs">
-      <DependentUpon>About.aspx</DependentUpon>
+    <Compile Include="Admin\TransactionSummary.aspx.designer.cs">
+      <DependentUpon>TransactionSummary.aspx</DependentUpon>
     </Compile>
+    <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Common\CommonHelper.cs" />
-    <Compile Include="Contact.aspx.cs">
-      <DependentUpon>Contact.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Contact.aspx.designer.cs">
-      <DependentUpon>Contact.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Default.aspx.cs">
-      <DependentUpon>Default.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Default.aspx.designer.cs">
-      <DependentUpon>Default.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -325,6 +311,7 @@
     </Compile>
     <Compile Include="Models\Request.cs" />
     <Compile Include="Models\RewardResponse.cs" />
+    <Compile Include="Models\TransSummary.cs" />
     <Compile Include="Models\Vendor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Rewards.aspx.cs">
@@ -334,6 +321,8 @@
     <Compile Include="Rewards.aspx.designer.cs">
       <DependentUpon>Rewards.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Services\AdminService.cs" />
+    <Compile Include="Services\IAdminService.cs" />
     <Compile Include="Services\IRewardService.cs" />
     <Compile Include="Services\RewardService.cs" />
     <Compile Include="Site.Master.cs">
@@ -349,6 +338,13 @@
     </Compile>
     <Compile Include="Site.Mobile.Master.designer.cs">
       <DependentUpon>Site.Mobile.Master</DependentUpon>
+    </Compile>
+    <Compile Include="UnauhtorizedAccess.aspx.cs">
+      <DependentUpon>UnauhtorizedAccess.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UnauhtorizedAccess.aspx.designer.cs">
+      <DependentUpon>UnauhtorizedAccess.aspx</DependentUpon>
     </Compile>
     <Compile Include="ViewSwitcher.ascx.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
