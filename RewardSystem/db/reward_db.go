@@ -25,6 +25,34 @@ func Migrate(postgresDBConfig string) {
 	m.Steps(2)
 }
 
+func GetMerchantView(postgresDB string) ([]model.AggregatedReward, error) {
+	db, err := sql.Open("postgres", postgresDB)
+	if err != nil {
+		return nil, errors.New("Cannot Connect to Sql")
+	}
+	defer db.Close()
+	rows, err := db.Query("SELECT reward_type, reward_subtype, COUNT(user_id), SUM(reward_value) FROM user_reward group by 1,2")
+	if err != nil {
+		return nil, err
+	}
+	defer rows.Close()
+	userRewards := []model.AggregatedReward{}
+	for rows.Next() {
+		var rewardType string
+		var rewardSubType string
+		var totalUser int
+		var totalReward float64
+		rows.Scan(&rewardType, &rewardSubType, &totalUser, &totalReward)
+		userRewards = append(userRewards, model.AggregatedReward{
+			RewardType:    rewardType,
+			RewardSubtype: rewardSubType,
+			CountOfUser:   totalUser,
+			TotalReward:   totalReward,
+		})
+	}
+	return userRewards, nil
+}
+
 func RedeemReward(userId, rewardType, rewardSubType string, rewardValue float64, postgresDB string) (bool, error) {
 	fmt.Println("update user_reward set reward_value = reward_value - $1 where user_id = $2 and reward_type = $3 and reward_value - $4 >= 0 and reward_subtype = $5", rewardValue, userId, rewardType, rewardValue, rewardSubType)
 	db, err := sql.Open("postgres", postgresDB)

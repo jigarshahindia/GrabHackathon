@@ -4,6 +4,17 @@ import (
 	_ "github.com/lib/pq"
 )
 
+type AggregatedReward struct {
+	RewardType    string
+	RewardSubtype string
+	CountOfUser   int
+	TotalReward   float64
+}
+
+type Merchant struct {
+	Data []AggregatedReward
+}
+
 type Message struct {
 	UserId        string  `json:"user_id,omitempty"`
 	RewardType    string  `json:"reward_type,omitempty"`
