@@ -29,7 +29,7 @@ func main() {
 	rewardconfig.ETCDCONFIG(config.ETCDHOST)
 	// Migrate Postgres Tables
 	postgresDB := rewardconfig.PostgresConfig(config.PostgresHost, config.PostgresPort, config.PostgresUsername, config.PostgresPassword, config.PostgresDB)
-	//db.Migrate(postgresDB)
+	db.Migrate(postgresDB)
 
 	kafkaConfig := rewardconfig.KafkaConfig(config.KafkaBrokers, config.KafkaGroupId, config.KafkaTopic)
 	go stream.Consume(kafkaConfig, postgresDB)
