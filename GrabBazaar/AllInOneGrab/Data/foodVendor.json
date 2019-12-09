@@ -1,42 +1,42 @@
 ﻿{
   "Vendors": [
     {
-      "name": "Paytm",
+      "name": "Zomato",
       "price": 1,
       "imageurl": "https://bsmedia.business-standard.com/_media/bs/img/article/2017-07/30/full/1501424786-7088.jpg",
       "category": "food",
       "type": "completion"
     },
     {
-      "name": "Paytm",
+      "name": "Swiggy",
       "price": 1,
       "imageurl": "https://bsmedia.business-standard.com/_media/bs/img/article/2017-07/30/full/1501424786-7088.jpg",
       "category": "food",
       "type": "completion"
     },
     {
-      "name": "Paytm",
+      "name": "FoodPanda",
       "price": 1,
       "imageurl": "https://bsmedia.business-standard.com/_media/bs/img/article/2017-07/30/full/1501424786-7088.jpg",
       "category": "food",
       "type": "completion"
     },
     {
-      "name": "Paytm",
+      "name": "Uber Eats",
       "price": 1,
       "imageurl": "https://bsmedia.business-standard.com/_media/bs/img/article/2017-07/30/full/1501424786-7088.jpg",
       "category": "food",
       "type": "timespent"
     },
     {
-      "name": "Paytm",
+      "name": "Grab Foods",
       "price": 1,
       "imageurl": "https://bsmedia.business-standard.com/_media/bs/img/article/2017-07/30/full/1501424786-7088.jpg",
       "category": "food",
       "type": "timespent"
     },
     {
-      "name": "Paytm",
+      "name": "Cult Food",
       "price": 1,
       "imageurl": "https://bsmedia.business-standard.com/_media/bs/img/article/2017-07/30/full/1501424786-7088.jpg",
       "category": "food",

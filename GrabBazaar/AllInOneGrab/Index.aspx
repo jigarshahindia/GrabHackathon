@@ -105,30 +105,6 @@
     <div id="divLoading">
     </div>
 
-    <!--START VENUE-->
-    <section class="venue-section">
-        <div class="container">
-            <h2 class="site-title">GRAB BAZAAR</h2>
-            <!-- Menu Bar -->
-            <div class="row">
-                <ul id="ulCategory">
-                    <li><a href="#" onclick="categoryChange('transport')" id="transport" class="active">transport</a></li>
-                    <li><a href="#" onclick="categoryChange('food')" id="food">Food</a></li>
-                    <li><a href="#" onclick="categoryChange('pay')" id="pay">Pay</a></li>
-                    <li><a href="#" onclick="categoryChange('delivery')" id="delivery">Delivery</a></li>
-                    <li><a href="#" onclick="categoryChange('tickets')" id="tickets">Tickets</a></li>
-                    <li><a href="#" onclick="categoryChange('hotels')" id="hotels">Hotels</a></li>
-                    <li><a href="#" onclick="categoryChange('videos')" id="videos">Videos</a></li>
-                </ul>
-            </div>
-            <br />
-
-            <!-- End Menu Bar -->
-            <div id="divCards"></div>
-
-        </div>
-    </section>
-    <!--END VENUE-->
 
     <!--START PHASES-->
     <section class="phases-section">
@@ -162,6 +138,33 @@
 
     </section>
     <!--END PHASES-->
+
+
+    <!--START VENUE-->
+    <section class="venue-section">
+        <div class="container">
+            <h2 class="site-title">GRAB BAZAAR</h2>
+            <!-- Menu Bar -->
+            <div class="row">
+                <ul id="ulCategory">
+                    <li><a href="#" onclick="categoryChange('transport')" id="transport" class="active">transport</a></li>
+                    <li><a href="#" onclick="categoryChange('food')" id="food">Food</a></li>
+                    <li><a href="#" onclick="categoryChange('pay')" id="pay">Pay</a></li>
+                    <li><a href="#" onclick="categoryChange('delivery')" id="delivery">Delivery</a></li>
+                    <li><a href="#" onclick="categoryChange('tickets')" id="tickets">Tickets</a></li>
+                    <li><a href="#" onclick="categoryChange('hotels')" id="hotels">Hotels</a></li>
+                    <li><a href="#" onclick="categoryChange('videos')" id="videos">Videos</a></li>
+                </ul>
+            </div>
+            <br />
+
+            <!-- End Menu Bar -->
+            <div id="divCards"></div>
+
+        </div>
+    </section>
+    <!--END VENUE-->
+
 
     <footer style="display: block;">
         <div class="gray-sep-1 m-t-30-res"></div>
